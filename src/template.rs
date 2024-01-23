@@ -90,6 +90,11 @@ impl Template {
 		return self;
 	}
 
+	/// Get matched name
+	pub fn get_matched_names(&self) ->Vec<&str> {
+		self.matches.iter().map(|entry|&self.src[entry.value_name_start..entry.value_name_end]).collect()
+	}
+
 	/// Render the template with the provided values.
 	///
 	/// Internal Helper function for [`Template::render`], [`Template::render_string`] and [`Template::render_nofail`].
